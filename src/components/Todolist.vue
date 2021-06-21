@@ -28,12 +28,13 @@
           </div>
         </div>
         <div>
-          <table >
+          <table class="text-center">
             <thead>
               <tr class="border-b border-black">
                 <!-- <th class="w-1/6">SST</th> -->
-                <th class="w-1/6 cursor-pointer" @click="sorttable('name')">Name<span v-show="data.currentSortDir==='asc'">	&darr;</span><span v-show="data.currentSortDir==='desc'">		&uarr;</span></th>
-                <th class="w-1/6">Status</th>
+                <th class="w-2/6 cursor-pointer" @click="sorttable('name')">Name<span v-show="data.currentSortDir==='asc'">	&darr;</span><span v-show="data.currentSortDir==='desc'">		&uarr;</span></th>
+                <th class="w-2/6">Status</th>
+                <th class="w-1/6"></th>
                 <th class="w-1/6"></th>
                 <th class="w-1/6"></th>
               </tr>
@@ -41,11 +42,10 @@
             <tbody>
               <tr v-for="(item,index) in todoList" :key="index" class="border-b border-gray-300">
                 <!-- <td class="w-1/6">{{item.name}}</td> -->
-                <td class="w-1/6"><input type="text" v-model="item.name"></td>
-                <td class="w-1/6">{{item.status}}</td>
-                <td class="w-1/6"><input type="checkbox" v-model="item.status" @click="onCheck(index)"></td>
-                <td class="w-1/6"><button class="btn-del" @click="onDelete(index)">Del</button></td>
-                <td class="w-1/6"><button class="btn-edit" @click="onEdit(index)">Edit</button></td>
+                <td class="w-2/6"><input type="text" v-model="item.name"></td>
+                <td class="w-2/6">{{item.status}} <input class="ml-4" type="checkbox" v-model="item.status" @click="onCheck(index)"></td>
+                <td class="w-1/12"><button class="btn-del" @click="onDelete(index)">Del</button> <button class="btn-edit" @click="onEdit(index)">Edit</button></td>
+                
               </tr>
             </tbody>
           </table>
